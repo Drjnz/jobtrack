@@ -1,0 +1,222 @@
+/* =========================================================
+   JobTrack – Styles personnalisés (par-dessus Bootstrap 5)
+   ========================================================= */
+
+/* ---------- Variables de couleurs ---------- */
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #4f46e5;
+
+  /* Couleurs de statut */
+  --pending-bg: #fff4e5;
+  --pending-fg: #b45309;
+  --pending-bd: #fdba74;
+
+  --accepted-bg: #e8f8ee;
+  --accepted-fg: #15803d;
+  --accepted-bd: #86efac;
+
+  --rejected-bg: #fdecec;
+  --rejected-fg: #b91c1c;
+  --rejected-bd: #fca5a5;
+
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 4px 16px rgba(15, 23, 42, .06);
+}
+
+/* ---------- Base ---------- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Bouton principal aux couleurs de l'application */
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: #4338ca;
+  --bs-btn-hover-border-color: #4338ca;
+  --bs-btn-active-bg: #3730a3;
+  --bs-btn-active-border-color: #3730a3;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+  border-radius: 10px;
+  border-color: var(--border);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 .2rem rgba(79, 70, 229, .15);
+}
+
+.input-group > .form-control { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.input-group > .input-group-text { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+
+/* ---------- En-tête ---------- */
+.app-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* ---------- Cartes de statistiques ---------- */
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  height: 100%;
+  transition: transform .15s ease;
+}
+
+.stat-card:hover { transform: translateY(-2px); }
+
+.stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-total    { background: #eef2ff; color: var(--primary); }
+.stat-pending  { background: var(--pending-bg);  color: var(--pending-fg); }
+.stat-accepted { background: var(--accepted-bg); color: var(--accepted-fg); }
+.stat-rejected { background: var(--rejected-bg); color: var(--rejected-fg); }
+
+.stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.1; }
+.stat-label { color: var(--muted); font-size: .85rem; }
+
+/* ---------- Panneau du tableau ---------- */
+.panel {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: #f8fafc;
+}
+
+.table thead th {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding-top: .85rem;
+  padding-bottom: .85rem;
+  border-color: var(--border);
+}
+
+/* Badge du type de contrat */
+.contract-badge {
+  display: inline-block;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: .78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Lien vers l'offre */
+.offer-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+.offer-link:hover { text-decoration: underline; }
+
+/* ---------- Sélecteur de statut coloré ---------- */
+.status-select {
+  min-width: 140px;
+  font-size: .85rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  cursor: pointer;
+}
+
+.status-select.status-pending  { background-color: var(--pending-bg);  color: var(--pending-fg);  border-color: var(--pending-bd); }
+.status-select.status-accepted { background-color: var(--accepted-bg); color: var(--accepted-fg); border-color: var(--accepted-bd); }
+.status-select.status-rejected { background-color: var(--rejected-bg); color: var(--rejected-fg); border-color: var(--rejected-bd); }
+
+/* ---------- Boutons d'action ---------- */
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  transition: all .15s ease;
+}
+.btn-icon:hover { background: #f1f5f9; color: var(--text); }
+.btn-icon.danger:hover { background: var(--rejected-bg); color: var(--rejected-fg); border-color: var(--rejected-bd); }
+
+/* ---------- État vide ---------- */
+.empty-state i { font-size: 2.6rem; color: #cbd5e1; }
+
+/* ---------- Modale de suppression ---------- */
+.delete-icon {
+  width: 56px;
+  height: 56px;
+  margin-inline: auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--rejected-bg);
+  color: var(--rejected-fg);
+  font-size: 1.5rem;
+}
+
+.modal-content { border-radius: var(--radius); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 575.98px) {
+  .stat-card { padding: 14px; gap: 10px; }
+  .stat-icon { width: 40px; height: 40px; font-size: 1.1rem; }
+  .stat-value { font-size: 1.4rem; }
+  .status-select { min-width: 130px; }
+}
